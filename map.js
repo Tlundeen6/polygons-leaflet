@@ -11,11 +11,18 @@ map.addLayer(layer);
 function displayPolygon(){
 
   // Get the numbers from html inputs
-  var longitude, latitude, radius;
+  var Longitude, Latitude, Radius;
 
   // create polygon
-
   // Add the polygon to the map
+  var NewCircle = L.circle([Latitude, Longitude], {
+	  color: '#2d862d',
+	  fillColor: '#71f471', 
+	  fillOpacity: 0.5,
+	  radius: Radius,
+  }).addTo(map);
+  
 
+ 
 }
 
