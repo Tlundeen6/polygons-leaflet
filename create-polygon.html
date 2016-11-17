@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Create Polygon</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
-
-
   <style>
     #map {
       width: 100%;
@@ -15,13 +12,28 @@
   </style>
 </head>
 <body>
-<form>
 
+<form>
   Longitude: <input type="number">
   Latitude: <input type="number">
   Radius: <input type="number">
   <input type="submit">
 </form>
+<div id="map"></div>
+
+<script>
+  // Adding the Layer and the Map
+  var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+  });
+  var map = L.map('map', {
+    center: [38.94, -77.01],
+    zoom: 11
+  });
+  map.addLayer(layer);
+
+  </script>
+
 
 
 </body>
