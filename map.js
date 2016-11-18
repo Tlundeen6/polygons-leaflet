@@ -8,6 +8,8 @@ var map = L.map('map', {
 });
 map.addLayer(layer);
 
+L.circle([38.94, -77.01], 1600).addTo(map);
+
 function displayPolygon(){
 
   // Get the numbers from html inputs
