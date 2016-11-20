@@ -11,9 +11,10 @@ map.addLayer(layer);
 function displayPolygon(){
 
   // Get the numbers from html inputs
-  var Long = document.getElementsByName("Longitude");
-  var Lat = document.getElementsByName("Latitude");
-  var Rad = document.getElementsByName("Radius");
+  var inputs = $('CircleInputs');
+  var Long = inputs.getElementsByName("Longitude");
+  var Lat = inputs.getElementsByName("Latitude");
+  var Rad = inputs.getElementsByName("Radius");
 
   // create polygon
   // Add the polygon to the map
