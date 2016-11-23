@@ -20,11 +20,27 @@ function displayPolygon(){
 
   // create polygon
   // Add the polygon to the map
-  var NewCircle = L.circle([Lat, Long], {
-	  color: '#2d862d',
-	  fillColor: '#71f471', 
-	  fillOpacity: 0.3,
-	  radius: Rad,
+  var CircleProperties = {
+	radius: Rad,
+    fillColor: "#00b33c",
+    color: "#1c7119",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.3
+  };
+  
+  var NewPoint = {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [Long, Lat]
+		}
+  };
+	
+  L.geoJSON(NewPoint, {
+	  pointToLayer: function (feature, latlng) {
+		  return L.circleMarker(latlng, CircleProperties);
+	  }
   }).addTo(map);
   
 }
