@@ -8,15 +8,13 @@ var map = L.map('map', {
 });
 map.addLayer(layer);
 
-L.circle([38.94, -77.01], 1600).addTo(map);
-
 function displayPolygon(){
 
   // Get the numbers from html inputs
-  var inputs = $('CircleInputs');
-  var Long = inputs.getElementsByName("Longitude").value;
-  var Lat = inputs.getElementsByName("Latitude").value;
-  var Rad = inputs.getElementsByName("Radius").value;
+  //var inputs = ('CircleInputs');
+  var Long = document.getElementsByName("Longitude")[0].value;
+  var Lat = document.getElementsByName("Latitude")[0].value;
+  var Rad = document.getElementsByName("Radius")[0].value;
 
   // create polygon
   // Add the polygon to the map
@@ -24,7 +22,7 @@ function displayPolygon(){
 	radius: Rad,
     fillColor: "#00b33c",
     color: "#1c7119",
-    weight: 1,
+    weight: 2,
     opacity: 1,
     fillOpacity: 0.3
   };
