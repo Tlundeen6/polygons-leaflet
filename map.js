@@ -12,9 +12,9 @@ function displayPolygon(){
 
   // Get the numbers from html inputs
   //var inputs = ('CircleInputs');
-  var Long = document.getElementsByName("Longitude")[0].value;
-  var Lat = document.getElementsByName("Latitude")[0].value;
-  var Rad = document.getElementsByName("Radius")[0].value;
+  var Long = Number(document.getElementsByName("Longitude")[0].value);
+  var Lat = Number(document.getElementsByName("Latitude")[0].value);
+  var Rad = Number(document.getElementsByName("Radius")[0].value);
 
   // create polygon
   // Add the polygon to the map
