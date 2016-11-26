@@ -8,7 +8,7 @@ var map = L.map('map', {
 });
 map.addLayer(layer);
 
-function createPolygon(latitude, longitude, radius){
+function createCircle(latitude, longitude, radius){
   // Create polygon and add it to the map
   var circle = L.circle([latitude, longitude], {
     color: "#1c7119",
@@ -21,15 +21,15 @@ function createPolygon(latitude, longitude, radius){
   map.setView(new L.LatLng(latitude, longitude), 13);
 };
 
-function createPolygonFromCoordinates(){
+function createCircleFromCoordinates(){
   // Get the numbers from html inputs
   var longitude = Number(document.getElementsByName("Longitude")[0].value);
   var latitude = Number(document.getElementsByName("Latitude")[0].value);
   var radius = Number(document.getElementsByName("Radius")[0].value);
-  createPolygon(latitude, longitude, radius);
+  createCircle(latitude, longitude, radius);
   
 };
 
-function createPolygonFromAddress() {
+function createCircleFromAddress() {
 
 };
