@@ -8,22 +8,28 @@ var map = L.map('map', {
 });
 map.addLayer(layer);
 
-function displayPolygon(){
-
-  // Get the numbers from html inputs
-  //var inputs = ('CircleInputs');
-  var Long = Number(document.getElementsByName("Longitude")[0].value);
-  var Lat = Number(document.getElementsByName("Latitude")[0].value);
-  var Rad = Number(document.getElementsByName("Radius")[0].value);
-
-  // create polygon
-  // Add the polygon to the map
-  var circle = L.circle([Lat, Long], {
+var createPolygon = function(latitude, longitude, radius){
+  // Create polygon and add it to the map
+  var circle = L.circle([latitude, longitude], {
     color: "#1c7119",
     fillColor: "#00b33c",
     fillOpacity: 0.3,
-    radius: Rad
+    radius: radius
   }).addTo(map);
-  
-}
 
+  // Change the center and the view to be center of circle
+  map.setView(new L.LatLng(latitude, longitude), 13);
+};
+
+function createPolygonFromCoordinates(){
+  // Get the numbers from html inputs
+  var longitude = Number(document.getElementsByName("Longitude")[0].value);
+  var latitude = Number(document.getElementsByName("Latitude")[0].value);
+  var radius = Number(document.getElementsByName("Radius")[0].value);
+  createPolygon(latitude, longitude, radius);
+  
+};
+
+function createPolygonFromAddress() {
+
+};
