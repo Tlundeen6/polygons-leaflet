@@ -32,4 +32,13 @@ function createCircleFromCoordinates(){
 
 function createCircleFromAddress() {
 
+  // Get mapbox url
+  // Do geocoding of address
+  // parse longitude and latitude
+  // create circle with longitude, latitude and radius
+
+  // $.get("demo_test.asp", function(data, status){
+  //   alert("Data: " + data + "\nStatus: " + status);
+  // });
+
 };
