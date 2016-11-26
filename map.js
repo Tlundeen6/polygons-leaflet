@@ -8,7 +8,7 @@ var map = L.map('map', {
 });
 map.addLayer(layer);
 
-var createPolygon = function(latitude, longitude, radius){
+function createPolygon(latitude, longitude, radius){
   // Create polygon and add it to the map
   var circle = L.circle([latitude, longitude], {
     color: "#1c7119",
