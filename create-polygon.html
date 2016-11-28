@@ -15,10 +15,12 @@
 <body>
 
 <p>
-  Longitude: <input type="number" step="0.01" name="Longitude">
-  Latitude: <input type="number" step="0.01" name="Latitude">
-  Radius (meters): <input type="number" step="0.01" name="Radius">
-  <button  onclick="createCircleFromCoordinates()">Create Polygon From Coordinates</button>
+  Latitude (N/S): <input type="number" step="0.01" name="Latitude">
+  Longitude (E/W): <input type="number" step="0.01" name="Longitude">
+  Radius (meters): <input type="number" step="0.01" name="RadiusMeters">
+  Radius (miles): <input type="number" step="0.01" name="RadiusMiles">
+  <button  onclick="createCircleFromCoordinatesMeters()">Create Circle From Coordinates in Meters</button>
+  <button  onclick="createCircleFromCoordinatesMiles()">Create Circle From Coordinates in Miles</button>
 </p>
 
 <p>  Or </p>
@@ -28,6 +30,9 @@
   Radius (meters): <input type="number" step="0.01" name="addressRadius">
   <button onclick="createCircleFromAddress()">Create Polygon From Address</button>
 </p>
+   <button  onclick="findCoordinates()">Find Latitude and Longitude on click</button>
+<p>
+   
 
 <div id="map"></div>
 <script src="map.js"></script>

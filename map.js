@@ -8,6 +8,19 @@ var map = L.map('map', {
 });
 map.addLayer(layer);
 
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("Latitude, Longitude: " + e.latlng.toString())
+        .openOn(map);
+}
+
+function findCoordinates(){
+   map.on('click', onMapClick) 
+};
+
 function createCircle(latitude, longitude, radius){
   // Create polygon and add it to the map
   var circle = L.circle([latitude, longitude], {
@@ -21,12 +34,22 @@ function createCircle(latitude, longitude, radius){
   map.setView(new L.LatLng(latitude, longitude), 13);
 };
 
-function createCircleFromCoordinates(){
+function createCircleFromCoordinatesMeters(){
   // Get the numbers from html inputs
   var longitude = Number(document.getElementsByName("Longitude")[0].value);
   var latitude = Number(document.getElementsByName("Latitude")[0].value);
-  var radius = Number(document.getElementsByName("Radius")[0].value);
+  var radius = Number(document.getElementsByName("RadiusMeters")[0].value);
   createCircle(latitude, longitude, radius);
+  
+};
+
+function createCircleFromCoordinatesMiles(){
+  // Get the numbers from html inputs
+  var longitude = Number(document.getElementsByName("Longitude")[0].value);
+  var latitude = Number(document.getElementsByName("Latitude")[0].value);
+  var radiusInput = Number(document.getElementsByName("RadiusMiles")[0].value);
+  var radiusMiles = radiusInput * 1609.34;
+  createCircle(latitude, longitude, radiusMiles);
   
 };
 
