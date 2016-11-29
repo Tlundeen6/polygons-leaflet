@@ -11,9 +11,13 @@
   var popup = L.popup();
   
   function onMapClick(e) {
+	  var LatLongStr = e.latlng.toString();
+	  var LatLongSubStr = LatLongStr.substring(7, 27);
+	  var LatLongSubStr2 = LatLongSubStr.replace(")", " ")
+	  var LongStr = LatLongStr.substring(17, 26);
       popup
           .setLatLng(e.latlng)
-          .setContent("Latitude, Longitude: " + e.latlng.toString())
+          .setContent("Latitude/Longitude: " + LatLongSubStr2)
           .openOn(map);
   }
   
@@ -65,3 +69,5 @@
    // });
  
  };
+ 
+ 
