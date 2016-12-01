@@ -33,8 +33,7 @@
 		}
     };		
 		
-	L.geoJSON(point, 	
-	).addTo(map);
+	L.geoJSON(point).addTo(map);
   }
   
   function findCoordinates(){
