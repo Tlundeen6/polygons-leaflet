@@ -22,7 +22,26 @@
         .setContent("Latitude/Longitude: " + LatLongSubStr2)
         .openOn(map);
 
-    var marker = L.marker(e.latlng).addTo(map);
+    var point = {
+    "type": "Feature",
+		"properties": {
+			"name": "selected point",		
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [e.latlng]
+		}
+    };		
+		
+	var PointStyle = {
+    "color": "#ff7800",
+    "weight": 5,
+    "opacity": 0.65
+    };
+
+	L.geoJSON(point, {
+	   style: PointStyle 	
+	}).addTo(map);
   }
   
   function findCoordinates(){
