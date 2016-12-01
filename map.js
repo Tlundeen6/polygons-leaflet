@@ -29,19 +29,12 @@
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [e.latlng]
+			"coordinates": [e.latlng.lng, e.latlng.lat]
 		}
     };		
 		
-	var PointStyle = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
-    };
-
-	L.geoJSON(point, {
-	   style: PointStyle 	
-	}).addTo(map);
+	L.geoJSON(point, 	
+	).addTo(map);
   }
   
   function findCoordinates(){
