@@ -8,17 +8,21 @@
   });
   map.addLayer(layer);
  
-  var popup = L.popup();
+
   
   function onMapClick(e) {
+    var popup = L.popup();
+
 	  var LatLongStr = e.latlng.toString();
 	  var LatLongSubStr = LatLongStr.substring(7, 27);
 	  var LatLongSubStr2 = LatLongSubStr.replace(")", " ")
 	  var LongStr = LatLongStr.substring(17, 26);
-      popup
-          .setLatLng(e.latlng)
-          .setContent("Latitude/Longitude: " + LatLongSubStr2)
-          .openOn(map);
+    popup
+        .setLatLng(e.latlng)
+        .setContent("Latitude/Longitude: " + LatLongSubStr2)
+        .openOn(map);
+
+    var marker = L.marker(e.latlng).addTo(map);
   }
   
   function findCoordinates(){
@@ -43,17 +47,18 @@
     var longitude = Number(document.getElementsByName("Longitude")[0].value);
     var latitude = Number(document.getElementsByName("Latitude")[0].value);
     var radiusMeters = Number(document.getElementsByName("RadiusMeters")[0].value);
-	var radiusInput = Number(document.getElementsByName("RadiusMiles")[0].value);
+	  var radiusInput = Number(document.getElementsByName("RadiusMiles")[0].value);
     var radiusMiles = radiusInput * 1609.34;
-	if (radiusMiles == 0 &&	radiusMeters > 0) {
-		createCircle(latitude, longitude, radiusMeters);
-	} else if (radiusMeters == 0 && radiusMiles > 0) {
-        createCircle(latitude, longitude, radiusMiles);
-	} else if (radiusMeters > 0 && radiusMiles > 0) {	
-		alert("you cannot have a radius value in both Meters and Miles")
-	} else {
-	    alert("add a radius value in either Meters or Miles")	
-	}
+
+    if (radiusMiles == 0 &&	radiusMeters > 0) {
+      createCircle(latitude, longitude, radiusMeters);
+    } else if (radiusMeters == 0 && radiusMiles > 0) {
+          createCircle(latitude, longitude, radiusMiles);
+    } else if (radiusMeters > 0 && radiusMiles > 0) {
+      alert("you cannot have a radius value in both Meters and Miles")
+    } else {
+      alert("add a radius value in either Meters or Miles")
+    }
        
   };
   
