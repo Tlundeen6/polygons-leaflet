@@ -21,7 +21,8 @@
         .setLatLng(e.latlng)
         .setContent("Latitude/Longitude: " + LatLongSubStr2)
         .openOn(map);
-
+    
+	
     var point = {
     "type": "Feature",
 		"properties": {
@@ -32,13 +33,21 @@
 			"coordinates": [e.latlng.lng, e.latlng.lat]
 		}
     };		
-		
-	L.geoJSON(point).addTo(map);
+	
+	var points = L.featureGroup();
+	
+	points = L.geoJSON(point).addTo(map);
+	
   }
-  
+   
   function findCoordinates(){
      map.on('click', onMapClick) 
   };
+  
+  function removePoints(){
+     map.removeLayer(points);
+  };
+  
   
   function createCircle(latitude, longitude, radius){
     // Create polygon and add it to the map
