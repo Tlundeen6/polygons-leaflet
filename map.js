@@ -8,7 +8,7 @@
   });
   map.addLayer(layer);
  
-
+  var points = L.featureGroup();
   
   function onMapClick(e) {
     var popup = L.popup();
@@ -32,11 +32,10 @@
 			"type": "Point",
 			"coordinates": [e.latlng.lng, e.latlng.lat]
 		}
-    };		
-	
-	var points = L.featureGroup();
-	
-	points = L.geoJSON(point).addTo(map);
+    };
+
+    layer = L.geoJSON().addTo(map);
+    layer.addData(point);
 	
   }
    
@@ -45,7 +44,15 @@
   };
   
   function removePoints(){
-     map.removeLayer(points);
+     map.removeLayer(layer);
+
+    // Recreate the map with original layer
+    layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    });
+
+    map.addLayer(layer);
+
   };
   
   
