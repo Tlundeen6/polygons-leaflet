@@ -1,9 +1,7 @@
 # polygons-leaflet
-Example of polygons
 
 
-
-## Create Polygon based on longitude and latitude
+## Creates a geofence of a given distance around a point based on longitude, latitude and radius input
 
 
 ## To run the application locally:
